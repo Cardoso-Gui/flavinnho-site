@@ -21,3 +21,9 @@ Prompt do fundo: preservar a identidade, pose, controladora, composição e ilum
 
 ## Páginas independentes
 Cada item do menu abre seu próprio documento: index.html, sobre.html, eventos.html, mixes.html, fotos.html e contato.html. O menu marca a página atual e todos compartilham estilos e cabeçalho fixo. O botão de consulta abre contato.html.
+
+## Imagens da Home — referência fornecida
+A Home utiliza reconstruções feitas com ImageGen integrado a partir do mockup fornecido pelo usuário, não fotografias documentais do artista. As fotos reais continuam nas páginas internas.
+- assets/home-dj.jpg: reconstruir a fotografia superior do DJ de camiseta clara e headphones à direita, preservando a composição azul e espaço escuro à esquerda; remover toda interface e texto.
+- assets/home-retrato.jpg: reconstruir o retrato do modelo de óculos e jaqueta, sorrindo e apontando para cima; remover molduras, textos e interface.
+- assets/home-publico.jpg: reconstruir o público com mãos levantadas e luzes azuis/violetas da chamada final, centro escuro e sem texto/interface.
