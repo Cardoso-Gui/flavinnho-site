@@ -116,7 +116,6 @@
     const image = card.querySelector('img');
     viewer.querySelector('img').src = card.href;
     viewer.querySelector('img').alt = image.alt;
-    viewer.querySelector('.viewer-caption').textContent = image.alt;
     viewer.showModal();
     schedule();
   }));
@@ -143,7 +142,6 @@
   new ResizeObserver(render).observe(deck);
   carousel.classList.add('is-ready');
   controls.hidden = false;
-  carousel.querySelector('.gallery-hint').hidden = false;
   render();
   schedule();
 })();
