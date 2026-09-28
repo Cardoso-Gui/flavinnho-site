@@ -13,3 +13,6 @@
 .portrait-collage>img{object-position:center 28%}.poster-detail img{object-position:75% center}
 .home-booking{background-image:linear-gradient(90deg,#03050a30,#03050a88 45%,#03050a88 60%,#03050a30),url('./assets/home-publico.jpg');background-position:center;background-size:cover}
 @media(max-width:650px){.page-inicio .hero{background-image:linear-gradient(0deg,#07080d 0%,#07080ddd 20%,#07080d25 65%,#07080d10),url('./assets/home-dj.jpg');background-position:center,68% top;background-size:cover,auto 80%;background-color:#050713}.portrait-collage>img{object-position:center 25%}}
+
+.page-inicio h1.official-logo{margin:35px 0 36px;line-height:0}.official-logo img{display:block;width:100%;max-width:600px;height:auto;filter:drop-shadow(0 3px 12px #0008)}
+@media(max-width:650px){.page-inicio h1.official-logo{margin:28px 0 30px}}

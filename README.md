@@ -27,3 +27,5 @@ A Home utiliza reconstruções feitas com ImageGen integrado a partir do mockup 
 - assets/home-dj.jpg: reconstruir a fotografia superior do DJ de camiseta clara e headphones à direita, preservando a composição azul e espaço escuro à esquerda; remover toda interface e texto.
 - assets/home-retrato.jpg: reconstruir o retrato do modelo de óculos e jaqueta, sorrindo e apontando para cima; remover molduras, textos e interface.
 - assets/home-publico.jpg: reconstruir o público com mãos levantadas e luzes azuis/violetas da chamada final, centro escuro e sem texto/interface.
+
+Logo oficial: assets/flavinnho-logo.svg extraído dos traçados vetoriais do PDF LOGO-FLAVINNHO.pdf fornecido pelo usuário. Fundo transparente e preenchimento branco para aplicação no site escuro.

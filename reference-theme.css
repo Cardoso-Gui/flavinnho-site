@@ -41,3 +41,8 @@ body:not(.page-inicio) main{padding-top:var(--header);min-height:calc(100svh - 1
  .about-photo{background:#020205;height:510px;mask-image:linear-gradient(#000 78%,transparent);-webkit-mask-image:linear-gradient(#000 78%,transparent)}
  .about-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;mask-image:none;-webkit-mask-image:none}
 }
+
+/* Original vector signature supplied by the artist. */
+.wordmark{transform:none;padding:0!important;line-height:0}.wordmark:after{display:none}.wordmark img{display:block;width:180px;height:auto}footer .wordmark img{width:160px}
+@media(max-width:1100px){.wordmark img{width:150px}}
+@media(max-width:650px){.site-header .wordmark img{width:155px}}
