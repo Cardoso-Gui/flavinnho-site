@@ -21,7 +21,7 @@
   function schedule() {
     clearTimeout(timer);
     if (userPaused || hovered || focused || !inView || document.hidden || viewer.open || pointer) return;
-    timer = setTimeout(() => select(current + 1), 4200);
+    timer = setTimeout(() => select(current + 1), 2500);
   }
 
   function render() {
