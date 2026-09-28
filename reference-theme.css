@@ -31,3 +31,13 @@ body:not(.page-inicio) main{padding-top:var(--header);min-height:calc(100svh - 1
 .page-contato .contact{padding-top:100px}
 @media(max-width:650px){.page-sobre .about{min-height:0}.page-mixes .mixes{padding:80px 7% 100px}}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+/* Preserve the original photograph instead of enlarging the generated portrait. */
+@media(min-width:651px){
+ .about-photo{background:#020205;overflow:hidden;mask-image:linear-gradient(90deg,#000 76%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,#000 76%,transparent 100%)}
+ .about-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 28%;mask-image:none;-webkit-mask-image:none;filter:contrast(1.08) saturate(.9)}
+ .about{background-size:100% 100%}
+}
+@media(max-width:650px){
+ .about-photo{background:#020205;height:510px;mask-image:linear-gradient(#000 78%,transparent);-webkit-mask-image:linear-gradient(#000 78%,transparent)}
+ .about-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;mask-image:none;-webkit-mask-image:none}
+}
