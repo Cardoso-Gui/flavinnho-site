@@ -1,13 +1,16 @@
-# Site do Flavinnho
+# Flavinnho DJ
 
-Página provisória para iniciar o projeto do site do Flavinnho.
+Home estática com HTML, CSS e JavaScript separados. Abra index.html ou use um servidor estático local.
 
-## Desenvolvimento
+GitHub Pages publica a raiz da branch main: https://cardoso-gui.github.io/flavinnho-site/
 
-Abra `index.html` no navegador. Esta versão é estática e não exige instalação de dependências.
+## Recursos
+- Foto fixa no desktop; composição adaptada ao celular.
+- Cabeçalho sempre visível, navegação por âncoras e indicação da seção atual.
+- Sobre expansível, agenda pública e seção de contato.
+- Navegação por teclado e preferência por movimento reduzido.
 
-## Publicação
+## Conteúdo pendente
+Logo oficial, biografia aprovada, WhatsApp, links de plataformas e datas públicas confirmadas. Os espaços correspondentes indicam disponibilidade futura; não há contatos ou eventos fictícios.
 
-O GitHub Pages deve publicar a raiz da branch `main` (Settings → Pages → Deploy from a branch → main → / (root)).
-
-As alterações enviadas para `main` serão publicadas automaticamente após a configuração do Pages.
+Fotos fornecidas pelo usuário. Fontes Inter e Barlow Condensed pelo Google Fonts, com alternativas locais.

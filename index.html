@@ -1,26 +1,30 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="O novo site do Flavinnho está chegando.">
-    <title>Flavinnho — Em breve</title>
-    <style>
-      * { box-sizing: border-box; }
-      body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; background: #111217; color: #f5f5f0; font-family: system-ui, sans-serif; }
-      main { width: 100%; max-width: 760px; padding: 64px 0; }
-      .status { color: #bdf776; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-      h1 { margin: 24px 0; font-size: clamp(48px, 11vw, 100px); letter-spacing: -.06em; line-height: 1; overflow-wrap: anywhere; }
-      p { max-width: 460px; color: #b6b7c1; font-size: 20px; line-height: 1.6; }
-      footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid #303138; color: #858691; font-size: 13px; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <span class="status">Em breve</span>
-      <h1>Flavinnho.</h1>
-      <p>Um novo espaço está chegando.<br>Estamos preparando tudo por aqui.</p>
-      <footer>Site em construção.</footer>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#07080d">
+<meta name="description" content="Flavinnho DJ. Música, energia e conexão. Conheça o artista e acompanhe as próximas novidades.">
+<title>Flavinnho DJ — Música, energia e conexão</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"><link rel="preload" as="image" href="./assets/flavinnho-live.jpg"><link rel="stylesheet" href="./styles.css"><script src="./script.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a><div class="stage" aria-hidden="true"></div>
+<header class="site-header">
+<a class="wordmark" href="#inicio" aria-label="Flavinnho DJ — início">FLAVINNHO<span>DJ<span class="brand-dot">.</span></span></a>
+<nav aria-label="Menu principal"><a href="#inicio" aria-current="location">Início</a><a href="#sobre">Sobre</a><a href="#agenda">Agenda</a><a href="#contato">Contato <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main id="conteudo">
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+<div class="hero-content"><p class="eyebrow"><span></span> MÚSICA · ENERGIA · CONEXÃO</p><h1 id="hero-title">FLAVINNHO<span>DJ<span class="title-period">.</span></span></h1><p class="hero-tagline">O som muda.<br> A energia fica.</p><a class="button primary" href="#contato">CONSULTE UMA DATA <span aria-hidden="true">↗</span></a></div>
+<div class="hero-bottom"><span>FEITO PARA SENTIR.</span><a href="#sobre">CONHEÇA O FLAVINNHO <span aria-hidden="true">↓</span></a><span class="hero-index">01 / 04</span></div><span class="vertical-note" aria-hidden="true">NO RITMO DO SEU MOMENTO</span>
+</section>
+<section class="about section" id="sobre" aria-labelledby="about-title">
+<div class="about-photo"><img src="./assets/flavinnho-sorrindo.jpg" alt="Flavinnho sorrindo enquanto toca na controladora, sob a iluminação azul do palco" loading="lazy" width="1152" height="1536"><span class="photo-caption">É SOBRE SENTIR JUNTO.</span></div>
+<div class="about-copy"><p class="eyebrow">01 — SOBRE O ARTISTA</p><h2 id="about-title">MAIS QUE MÚSICA,<br><em>É CONEXÃO.</em></h2><p class="body-copy">Cada pista, uma energia.<br>Cada set, uma nova conexão.<br>A música é o que nos aproxima.</p><details class="story"><summary>CONHEÇA MINHA HISTÓRIA <span aria-hidden="true">+</span></summary><p>A história do Flavinnho vai ganhar este espaço em breve. Por enquanto, as imagens contam um pouco: ele, a música e a energia de cada momento no palco.</p></details><div class="about-signoff" aria-hidden="true"><span class="sound-line"></span><span class="mini-brand">FLAVINNHO DJ.</span></div></div>
+</section>
+<section class="interlude" aria-label="Música para viver o momento"><p>O PLAY É SÓ<br><em>O COMEÇO.</em></p><span aria-hidden="true">↘</span></section>
+<section class="agenda section" id="agenda" aria-labelledby="agenda-title"><div class="section-top"><div><p class="eyebrow">02 — NA PISTA</p><h2 id="agenda-title">PRÓXIMOS<br><em>ENCONTROS.</em></h2></div><p class="aside-copy">A próxima conexão<br>pode ser com você.</p></div><div class="agenda-empty"><span class="date-placeholder" aria-hidden="true">—<small>EM BREVE</small></span><div><h3>Novas datas estão chegando.</h3><p>Os próximos eventos públicos serão anunciados aqui.</p></div><span class="event-label">AGENDA EM ATUALIZAÇÃO</span></div><p class="agenda-note">Quer levar essa energia para o seu evento? <a href="#contato">Vamos nos conectar <span aria-hidden="true">↗</span></a></p></section>
+<section class="contact section" id="contato" aria-labelledby="contact-title"><p class="eyebrow">03 — VAMOS NOS CONECTAR</p><h2 id="contact-title">QUER O FLAVINNHO<br>NO SEU <em>EVENTO?</em></h2><p>Uma nova pista. Uma nova história.</p><div class="contact-pending"><span class="status-dot" aria-hidden="true"></span> Canal de reservas disponível em breve.</div><p class="contact-note">Estamos preparando os contatos oficiais por aqui.</p></section>
+</main>
+<footer><a class="wordmark" href="#inicio" aria-label="Flavinnho DJ — voltar ao início">FLAVINNHO<span>DJ.</span></a><p>MÚSICA · ENERGIA · CONEXÃO</p><a class="back-top" href="#inicio">VOLTAR AO TOPO ↑</a><small>© <span id="year">2026</span> Flavinnho DJ</small></footer>
+</body>
 </html>
