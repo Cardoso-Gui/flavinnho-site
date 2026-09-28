@@ -49,3 +49,20 @@ body:not(.page-inicio) main{padding-top:var(--header);min-height:calc(100svh - 1
 
 /* Soft fixed-header transition over the page artwork. */
 .site-header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;isolation:isolate}.site-header:before{content:'';position:absolute;inset:0 0 -65px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#02040bf5 0%,#02040be8 35%,#02040ba6 62%,#02040b40 82%,transparent 100%)}
+/* Start internal-page surfaces behind the fixed header, not below it. */
+body:not(.page-inicio) main{padding-top:0}
+body:not(.page-inicio) .stage{display:none}
+.page-sobre .about{min-height:100svh}
+.page-sobre .about-copy{padding-top:calc(var(--header) + 65px)}
+.page-agenda .agenda{padding-top:calc(var(--header) + 90px)}
+.page-mixes .mixes{padding-top:calc(var(--header) + 130px)}
+.page-fotos .photos{padding-top:calc(var(--header) + 90px);border-top:0}
+.page-contato .contact{padding-top:calc(var(--header) + 100px)}
+.page-mixes .mixes{border-top:0}
+@media(max-width:650px){
+ .page-sobre .about-photo{height:calc(510px + var(--header))}
+ .page-sobre .about-copy{padding-top:5px}
+ .page-agenda .agenda,.page-fotos .photos{padding-top:calc(var(--header) + 65px)}
+ .page-mixes .mixes{padding-top:calc(var(--header) + 80px)}
+ .page-contato .contact{padding-top:calc(var(--header) + 75px)}
+}
