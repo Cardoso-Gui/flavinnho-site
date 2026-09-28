@@ -46,3 +46,6 @@ body:not(.page-inicio) main{padding-top:var(--header);min-height:calc(100svh - 1
 .wordmark{transform:none;padding:0!important;line-height:0}.wordmark:after{display:none}.wordmark img{display:block;width:180px;height:auto}footer .wordmark img{width:160px}
 @media(max-width:1100px){.wordmark img{width:150px}}
 @media(max-width:650px){.site-header .wordmark img{width:155px}}
+
+/* Soft fixed-header transition over the page artwork. */
+.site-header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;isolation:isolate}.site-header:before{content:'';position:absolute;inset:0 0 -65px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#02040bf5 0%,#02040be8 35%,#02040ba6 62%,#02040b40 82%,transparent 100%)}

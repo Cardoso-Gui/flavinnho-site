@@ -16,3 +16,6 @@
 
 .page-inicio h1.official-logo{margin:35px 0 36px;line-height:0}.official-logo img{display:block;width:100%;max-width:600px;height:auto;filter:drop-shadow(0 3px 12px #0008)}
 @media(max-width:650px){.page-inicio h1.official-logo{margin:28px 0 30px}}
+
+.page-inicio .site-header{background:transparent}
+@media(min-width:651px){.page-inicio .stage:before{top:0}}
