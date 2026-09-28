@@ -14,3 +14,7 @@ GitHub Pages publica a raiz da branch main: https://cardoso-gui.github.io/flavin
 Logo oficial, biografia aprovada, WhatsApp, links de plataformas e datas públicas confirmadas. Os espaços correspondentes indicam disponibilidade futura; não há contatos ou eventos fictícios.
 
 Fotos fornecidas pelo usuário. Fontes Inter e Barlow Condensed pelo Google Fonts, com alternativas locais.
+## Referência visual — revisão violeta
+A revisão usa a referência enviada pelo usuário: tipografia de marcador, contornos violetas, fotografia azul e fumaça integrada. O fundo assets/sobre-atmosfera.jpg foi gerado com a ferramenta integrada ImageGen a partir dessa referência, removendo a interface para manter o conteúdo em HTML acessível. A logo tipográfica continua provisória.
+
+Prompt do fundo: preservar a identidade, pose, controladora, composição e iluminação do DJ da referência; remover todos os textos, logos, botões e navegação; manter fumaça azul/violeta e a onda inferior, com espaço preto à direita para texto HTML.
