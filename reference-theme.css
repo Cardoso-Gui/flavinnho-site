@@ -66,3 +66,6 @@ body:not(.page-inicio) .stage{display:none}
  .page-mixes .mixes{padding-top:calc(var(--header) + 80px)}
  .page-contato .contact{padding-top:calc(var(--header) + 75px)}
 }
+
+/* Official artist channels. */
+footer .social-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 28px}footer .social-links a{display:inline-flex;align-items:center;min-height:44px;font-size:10px;letter-spacing:2px;color:#d3c5e3}footer .social-links a:hover{color:#ce5cfc}footer .social-links a:focus-visible{outline:2px solid #ce5cfc;outline-offset:5px;border-radius:2px}.youtube-link{margin:16px 0 0 16px}@media(max-width:650px){.youtube-link{margin-left:0;display:flex;width:fit-content}footer .social-links{gap:8px 20px}}
