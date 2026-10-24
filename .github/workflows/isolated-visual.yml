@@ -1,0 +1,49 @@
+name: Isolated visual equivalence
+on:
+  push:
+    branches: [qa/code-organization-20261024]
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Checkout unchanged baseline
+        uses: actions/checkout@v7
+        with:
+          ref: d8e606d47093af6e1314f77740962044266d599c
+          path: .qa/fixtures/before
+          persist-credentials: false
+      - name: Checkout exact candidate
+        uses: actions/checkout@v7
+        with:
+          ref: 6091395e2a2f268334ff85231349309ca9bcea1a
+          path: .qa/fixtures/after
+          persist-credentials: false
+      - name: Install isolated validation dependencies
+        working-directory: .qa
+        run: npm ci --no-audit --no-fund
+      - name: Install Chromium
+        working-directory: .qa
+        run: npx playwright install --with-deps chromium
+      - name: Static and browser equivalence
+        env:
+          BEFORE_DIR: ${{ github.workspace }}/.qa/fixtures/before
+          AFTER_DIR: ${{ github.workspace }}/.qa/fixtures/after
+          QA_OUT: ${{ github.workspace }}/qa-output
+        run: |
+          mkdir -p qa-output
+          node .qa/static-check.mjs | tee qa-output/static.log
+          node .qa/visual.cjs | tee qa-output/browser.log
+      - name: Upload comparison evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-equivalence-${{ github.sha }}
+          path: qa-output/
+          retention-days: 7
+          if-no-files-found: warn

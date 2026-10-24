@@ -1,0 +1,192 @@
+[
+  {
+    "file": "css/styles.css",
+    "selector": ".brand-dot",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".title-period",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude p",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude em",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude>span",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".contact-pending",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".status-dot",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".contact .contact-note",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".brand-dot",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude p",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".interlude>span",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/styles.css",
+    "selector": ".contact-pending",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".brand-dot",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".title-period",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".interlude",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".interlude em",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".interlude>span",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".contact-pending",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".status-dot",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".contact .contact-note",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".coming-label",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid figure",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid img",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid figcaption",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid img",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid img",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".photo-grid figcaption",
+    "reason": "no matching class in any authored HTML or JS"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".site-header",
+    "property": "background",
+    "value": "linear-gradient(#020205f5,#020205a8)",
+    "reason": "later unconditional same-selector declaration wins"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".site-header",
+    "property": "backdrop-filter",
+    "value": "blur(12px)",
+    "reason": "later unconditional same-selector declaration wins"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": ".wordmark",
+    "property": "transform",
+    "value": "rotate(-7deg)",
+    "reason": "later unconditional same-selector declaration wins"
+  },
+  {
+    "file": "css/theme.css",
+    "selector": "body:not(.page-inicio) main",
+    "property": "padding-top",
+    "value": "var(--header)",
+    "reason": "later unconditional same-selector declaration wins"
+  },
+  {
+    "file": "css/home.css",
+    "selector": ".page-inicio .site-header",
+    "property": "background",
+    "value": "linear-gradient(#01030bf2,#03091dcc)",
+    "reason": "later unconditional same-selector declaration wins"
+  }
+]

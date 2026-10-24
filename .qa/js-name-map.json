@@ -1,0 +1,10 @@
+{
+  "current": "currentPhotoIndex",
+  "schedule": "scheduleAutoplay",
+  "render": "renderCarousel",
+  "select": "selectPhoto",
+  "play": "playButton",
+  "counter": "photoCounter",
+  "status": "liveStatus",
+  "timer": "autoplayTimer"
+}

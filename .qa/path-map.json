@@ -1,0 +1,11 @@
+{
+  "styles.css": "css/styles.css",
+  "reference-theme.css": "css/theme.css",
+  "home.css": "css/home.css",
+  "gallery.css": "css/gallery.css",
+  "story-modal.css": "css/story-modal.css",
+  "script.js": "js/site.js",
+  "gallery.js": "js/photo-gallery.js",
+  "story-modal.js": "js/story-modal.js",
+  "video-gallery.js": "js/video-gallery.js"
+}
