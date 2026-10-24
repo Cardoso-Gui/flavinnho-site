@@ -4,30 +4,35 @@
   const deck = carousel.querySelector('.photo-deck');
   const cards = [...deck.querySelectorAll('.photo-card')];
   const controls = carousel.querySelector('.gallery-controls');
-  const play = carousel.querySelector('.gallery-play');
-  const counter = carousel.querySelector('.gallery-counter');
-  const status = carousel.querySelector('.gallery-status');
+  const playButton = carousel.querySelector('.gallery-play');
+  const photoCounter = carousel.querySelector('.gallery-counter');
+  const liveStatus = carousel.querySelector('.gallery-status');
   const viewer = document.querySelector('.photo-viewer');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  let current = 0;
+  const AUTOPLAY_DELAY_MS = 2500;
+  const DRAG_START_DISTANCE_PX = 12;
+  const SWIPE_DISTANCE_PX = 35;
+
+  let currentPhotoIndex = 0;
   let userPaused = reducedMotion.matches;
   let hovered = false;
   let focused = false;
   let inView = true;
   let pointer = null;
   let suppressClick = false;
-  let timer;
+  let autoplayTimer;
 
-  function schedule() {
-    clearTimeout(timer);
+  function scheduleAutoplay() {
+    clearTimeout(autoplayTimer);
     if (userPaused || hovered || focused || !inView || document.hidden || viewer.open || pointer) return;
-    timer = setTimeout(() => select(current + 1), 2500);
+    autoplayTimer = setTimeout(() => selectPhoto(currentPhotoIndex + 1), AUTOPLAY_DELAY_MS);
   }
 
-  function render() {
+  function renderCarousel() {
     const step = Math.min(deck.clientWidth * .38, 265);
     cards.forEach((card, index) => {
-      let offset = (index - current + cards.length) % cards.length;
+      // Wrap the offset so the nearest cards stay on each side of the active photo.
+      let offset = (index - currentPhotoIndex + cards.length) % cards.length;
       if (offset > cards.length / 2) offset -= cards.length;
       const distance = Math.abs(offset);
       card.style.setProperty('--shift', `${offset * step}px`);
@@ -40,55 +45,55 @@
       card.tabIndex = distance === 0 ? 0 : -1;
       card.setAttribute('aria-hidden', distance === 0 ? 'false' : 'true');
     });
-    counter.innerHTML = `${String(current + 1).padStart(2, '0')} <span>/ ${cards.length}</span>`;
-    play.innerHTML = userPaused ? 'REPRODUZIR <span aria-hidden="true">▶</span>' : 'PAUSAR <span aria-hidden="true">Ⅱ</span>';
-    play.setAttribute('aria-label', userPaused ? 'Iniciar passagem automática' : 'Pausar passagem automática');
+    photoCounter.innerHTML = `${String(currentPhotoIndex + 1).padStart(2, '0')} <span>/ ${cards.length}</span>`;
+    playButton.innerHTML = userPaused ? 'REPRODUZIR <span aria-hidden="true">▶</span>' : 'PAUSAR <span aria-hidden="true">Ⅱ</span>';
+    playButton.setAttribute('aria-label', userPaused ? 'Iniciar passagem automática' : 'Pausar passagem automática');
   }
 
-  function select(index, manual = false) {
+  function selectPhoto(index, manual = false) {
     const cardHadFocus = cards.includes(document.activeElement);
-    current = (index + cards.length) % cards.length;
-    render();
-    if (cardHadFocus) cards[current].focus({ preventScroll: true });
-    if (manual) status.textContent = `Foto ${current + 1} de ${cards.length}: ${cards[current].querySelector('img').alt}`;
-    schedule();
+    currentPhotoIndex = (index + cards.length) % cards.length;
+    renderCarousel();
+    if (cardHadFocus) cards[currentPhotoIndex].focus({ preventScroll: true });
+    if (manual) liveStatus.textContent = `Foto ${currentPhotoIndex + 1} de ${cards.length}: ${cards[currentPhotoIndex].querySelector('img').alt}`;
+    scheduleAutoplay();
   }
 
   controls.querySelectorAll('[data-direction]').forEach(button => {
-    button.addEventListener('click', () => select(current + Number(button.dataset.direction), true));
+    button.addEventListener('click', () => selectPhoto(currentPhotoIndex + Number(button.dataset.direction), true));
   });
-  play.addEventListener('click', () => {
+  playButton.addEventListener('click', () => {
     userPaused = !userPaused;
     focused = false;
-    render();
-    schedule();
+    renderCarousel();
+    scheduleAutoplay();
   });
   carousel.addEventListener('keydown', event => {
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       event.preventDefault();
-      select(current + (event.key === 'ArrowRight' ? 1 : -1), true);
+      selectPhoto(currentPhotoIndex + (event.key === 'ArrowRight' ? 1 : -1), true);
     }
   });
   deck.addEventListener('pointerenter', event => {
-    if (event.pointerType === 'mouse') { hovered = true; schedule(); }
+    if (event.pointerType === 'mouse') { hovered = true; scheduleAutoplay(); }
   });
-  deck.addEventListener('pointerleave', () => { hovered = false; schedule(); });
-  carousel.addEventListener('focusin', () => { focused = true; schedule(); });
+  deck.addEventListener('pointerleave', () => { hovered = false; scheduleAutoplay(); });
+  carousel.addEventListener('focusin', () => { focused = true; scheduleAutoplay(); });
   carousel.addEventListener('focusout', event => {
-    if (!carousel.contains(event.relatedTarget)) { focused = false; schedule(); }
+    if (!carousel.contains(event.relatedTarget)) { focused = false; scheduleAutoplay(); }
   });
   deck.addEventListener('dragstart', event => event.preventDefault());
   deck.addEventListener('pointerdown', event => {
     if (!event.isPrimary || event.button !== 0) return;
     pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, dragging: false };
     suppressClick = false;
-    schedule();
+    scheduleAutoplay();
   });
   deck.addEventListener('pointermove', event => {
     if (!pointer || event.pointerId !== pointer.id) return;
     pointer.dx = event.clientX - pointer.x;
     const dy = event.clientY - pointer.y;
-    if (!pointer.dragging && Math.abs(pointer.dx) > 12 && Math.abs(pointer.dx) > Math.abs(dy)) {
+    if (!pointer.dragging && Math.abs(pointer.dx) > DRAG_START_DISTANCE_PX && Math.abs(pointer.dx) > Math.abs(dy)) {
       pointer.dragging = true;
       deck.setPointerCapture(event.pointerId);
       deck.classList.add('is-dragging');
@@ -101,23 +106,24 @@
     deck.classList.remove('is-dragging');
     if (deck.hasPointerCapture(event.pointerId)) deck.releasePointerCapture(event.pointerId);
     if (drag.dragging && event.type === 'pointerup') {
+      // A completed swipe must not also open the photo viewer through its click event.
       suppressClick = true;
-      if (Math.abs(drag.dx) > 35) select(current + (drag.dx < 0 ? 1 : -1), true);
+      if (Math.abs(drag.dx) > SWIPE_DISTANCE_PX) selectPhoto(currentPhotoIndex + (drag.dx < 0 ? 1 : -1), true);
     }
-    schedule();
+    scheduleAutoplay();
   }
   window.addEventListener('pointerup', endDrag);
   window.addEventListener('pointercancel', endDrag);
   cards.forEach((card, index) => card.addEventListener('click', event => {
     if (suppressClick) { event.preventDefault(); suppressClick = false; return; }
-    if (index !== current) { event.preventDefault(); select(index, true); return; }
+    if (index !== currentPhotoIndex) { event.preventDefault(); selectPhoto(index, true); return; }
     if (typeof viewer.showModal !== 'function') return;
     event.preventDefault();
     const image = card.querySelector('img');
     viewer.querySelector('img').src = card.href;
     viewer.querySelector('img').alt = image.alt;
     viewer.showModal();
-    schedule();
+    scheduleAutoplay();
   }));
   viewer.querySelector('.viewer-close').addEventListener('click', () => viewer.close());
   viewer.addEventListener('click', event => {
@@ -126,22 +132,22 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) viewer.close();
   });
   viewer.addEventListener('close', () => {
-    cards[current].focus({ preventScroll: true });
-    schedule();
+    cards[currentPhotoIndex].focus({ preventScroll: true });
+    scheduleAutoplay();
   });
   reducedMotion.addEventListener('change', event => {
     if (event.matches) userPaused = true;
-    render();
-    schedule();
+    renderCarousel();
+    scheduleAutoplay();
   });
-  document.addEventListener('visibilitychange', schedule);
+  document.addEventListener('visibilitychange', scheduleAutoplay);
   new IntersectionObserver(entries => {
     inView = entries[0].isIntersecting;
-    schedule();
+    scheduleAutoplay();
   }, { threshold: .2 }).observe(deck);
-  new ResizeObserver(render).observe(deck);
+  new ResizeObserver(renderCarousel).observe(deck);
   carousel.classList.add('is-ready');
   controls.hidden = false;
-  render();
-  schedule();
+  renderCarousel();
+  scheduleAutoplay();
 })();

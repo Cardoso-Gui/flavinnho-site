@@ -1,0 +1,34 @@
+.contact-call {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px
+}
+.contact-call>span {
+  font-size: 13px;
+  color: #bca8cb
+}
+.contact-call>a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 4px 12px;
+  color: #ece7ee;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px
+}
+.contact-call svg {
+  color: #ce5cfc;
+  flex-shrink: 0
+}
+.contact-call>a:hover {
+  color: #ce5cfc;
+  background: #ba40ff12
+}
+.contact-call>a:focus-visible {
+  outline: 2px solid #ce5cfc;
+  outline-offset: 4px
+}
