@@ -41,7 +41,7 @@ mas o servidor local é preferível para conferir navegação e carregamento de 
 Os arquivos de estilo são carregados nesta ordem: base (`styles.css`), tema
 (`theme.css`) e estilo específico da página. Essa ordem faz parte da cascata;
 não a altere sem comparar o resultado visual. `--accent` representa a cor de
-destaque, que varia entre o tema compartilhado e a página inicial.
+destaque usada nos elementos visuais do site.
 
 O cabeçalho e o rodapé estão repetidos nas seis páginas para manter a estrutura
 estática simples. Ao atualizar menus, logo ou redes sociais, confira todas as
