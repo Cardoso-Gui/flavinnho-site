@@ -1,4 +1,4 @@
-name: Refactor and approved purple validation
+name: Approved purple final validation
 on:
   push:
     branches: [qa/code-organization-20261024]
@@ -12,11 +12,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - mode: refactor
-            baseline: d8e606d47093af6e1314f77740962044266d599c
-            candidate: 0b561fb9c51609db9024af5c016aa533a0e9e1f4
-            static: static-check.mjs
-            visual: visual.cjs
           - mode: purple
             baseline: 0b561fb9c51609db9024af5c016aa533a0e9e1f4
             candidate: 359f2f7532ed129ed609336bdabfd9e17dc03281

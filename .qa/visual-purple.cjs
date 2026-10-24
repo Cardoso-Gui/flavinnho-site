@@ -232,14 +232,16 @@ async function interact(page, name, prefix) {
     // Keep zero pixel tolerance: these flags do not mask or exempt any rendered differences.
     const renderingArgs = ['--disable-gpu', '--disable-skia-runtime-opts'];
     report.renderingArgs = renderingArgs;
-    browser = await chromium.launch({ headless: true, args: renderingArgs });
+    report.browserProcessIsolation = 'fresh Chromium process for every before/after/before-repeat variant';
     for (const viewport of viewports) for (const name of pages) {
       const runs = [];
-      // The repeat is an independent browser context using the exact original files.
+      // Every variant uses an independent browser process; the repeat uses the exact original files.
       // Its pixel comparison remains zero-tolerance and can expose rendering nondeterminism.
       const variants = [['before', before], ['after', after]];
       if (name === 'index') variants.push(['before-repeat', before]);
       for (const [version, server] of variants) {
+        if (browser) { await browser.close(); browser = undefined; }
+        browser = await chromium.launch({ headless: true, args: renderingArgs });
         const prefix = `${name}-${viewport.width}-${version}`;
         const context = await browser.newContext({ viewport, deviceScaleFactor: 1, reducedMotion: 'reduce', locale: 'pt-BR', timezoneId: 'UTC', colorScheme: 'dark' });
         const errors = [], networkErrors = [];
@@ -292,7 +294,11 @@ async function interact(page, name, prefix) {
           record(`${prefix} load/assets/interactions`, false, e.stack || String(e));
           try { await page.screenshot({ path: path.join(out, prefix + '-failure.png'), fullPage: true }); } catch {}
           runs.push(null);
-        } finally { await context.close(); }
+        } finally {
+          await context.close();
+          await browser.close();
+          browser = undefined;
+        }
       }
       if (runs.slice(0, 2).every(Boolean)) {
         if (name === 'index') compareHomeSnapshot(`${name}-${viewport.width} initial`, runs[0].initial, runs[1].initial);
