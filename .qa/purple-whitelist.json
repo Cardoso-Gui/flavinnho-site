@@ -1,0 +1,302 @@
+{
+  "scope": "Only home accent colors; no geometry, text, asset or neutral dark background changes",
+  "colorMap": {
+    "#168bff": "#ba40ff",
+    "#229bff": "#ba40ff",
+    "#087aff": "#ba40ff",
+    "#d6edff": "#ece7ee",
+    "#137bffa0": "#ba40ffa0",
+    "#9cd9ff42": "#ce60ff42",
+    "#249aff": "#ce5cfc",
+    "#c5d5eb": "#d3c5e3",
+    "#26a7ff": "#ce5cfc",
+    "#0e407d44": "#8021b444",
+    "#188aff": "#ba40ff",
+    "#c8d6f0": "#d3c5e3",
+    "#42b4ff": "#ce5cfc",
+    "#169fff": "#ce5cfc",
+    "#339aff": "#ce6bff",
+    "#b9cbe2": "#c9b4d6",
+    "#137bff": "#ba40ff",
+    "#006cff35": "#ba40ff35",
+    "#168bff30": "#ba40ff30"
+  },
+  "changes": [
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio"
+      ],
+      "selector": ".page-inicio",
+      "property": "--accent",
+      "before": "#168bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 3
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .wordmark:after"
+      ],
+      "selector": ".page-inicio .wordmark:after",
+      "property": "background",
+      "before": "#229bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 9
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio h1>span"
+      ],
+      "selector": ".page-inicio h1>span",
+      "property": "color",
+      "before": "#087aff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 38
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .primary"
+      ],
+      "selector": ".page-inicio .primary",
+      "property": "background",
+      "before": "#087aff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 63
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .primary"
+      ],
+      "selector": ".page-inicio .primary",
+      "property": "border",
+      "before": "1px solid #d6edff",
+      "after": "1px solid #ece7ee",
+      "important": false,
+      "line": 64
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .primary"
+      ],
+      "selector": ".page-inicio .primary",
+      "property": "box-shadow",
+      "before": "0 0 18px #137bffa0,inset 0 0 12px #9cd9ff42",
+      "after": "0 0 18px #ba40ffa0,inset 0 0 12px #ce60ff42",
+      "important": false,
+      "line": 65
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .primary:hover"
+      ],
+      "selector": ".page-inicio .primary:hover",
+      "property": "background",
+      "before": "#249aff",
+      "after": "#ce5cfc",
+      "important": false,
+      "line": 68
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .outline"
+      ],
+      "selector": ".page-inicio .outline",
+      "property": "border",
+      "before": "1px solid #c5d5eb",
+      "after": "1px solid #d3c5e3",
+      "important": false,
+      "line": 72
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .outline:hover"
+      ],
+      "selector": ".page-inicio .outline:hover",
+      "property": "border-color",
+      "before": "#26a7ff",
+      "after": "#ce5cfc",
+      "important": false,
+      "line": 77
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".page-inicio .outline:hover"
+      ],
+      "selector": ".page-inicio .outline:hover",
+      "property": "background",
+      "before": "#0e407d44",
+      "after": "#8021b444",
+      "important": false,
+      "line": 78
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".play-mark"
+      ],
+      "selector": ".play-mark",
+      "property": "color",
+      "before": "#188aff",
+      "after": "#ba40ff",
+      "important": true,
+      "line": 84
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".music-link"
+      ],
+      "selector": ".music-link",
+      "property": "color",
+      "before": "#c8d6f0",
+      "after": "#d3c5e3",
+      "important": false,
+      "line": 96
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".music-link:hover"
+      ],
+      "selector": ".music-link:hover",
+      "property": "color",
+      "before": "#42b4ff",
+      "after": "#ce5cfc",
+      "important": false,
+      "line": 101
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-about .eyebrow"
+      ],
+      "selector": ".home-about .eyebrow",
+      "property": "color",
+      "before": "#169fff",
+      "after": "#ce5cfc",
+      "important": false,
+      "line": 181
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-about h2 em"
+      ],
+      "selector": ".home-about h2 em",
+      "property": "color",
+      "before": "#168bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 195
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-about .button"
+      ],
+      "selector": ".home-about .button",
+      "property": "border-color",
+      "before": "#168bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 206
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".event-stamp strong"
+      ],
+      "selector": ".event-stamp strong",
+      "property": "color",
+      "before": "#339aff",
+      "after": "#ce6bff",
+      "important": false,
+      "line": 283
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".circle-link"
+      ],
+      "selector": ".circle-link",
+      "property": "border",
+      "before": "1px solid #b9cbe2",
+      "after": "1px solid #c9b4d6",
+      "important": false,
+      "line": 301
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".circle-link:hover"
+      ],
+      "selector": ".circle-link:hover",
+      "property": "background",
+      "before": "#137bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 308
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-booking:after"
+      ],
+      "selector": ".home-booking:after",
+      "property": "background",
+      "before": "radial-gradient(ellipse at 4% 70%,#006cff35,transparent 40%),radial-gradient(ellipse at 98% 40%,#7a1cff2b,transparent 40%)",
+      "after": "radial-gradient(ellipse at 4% 70%,#ba40ff35,transparent 40%),radial-gradient(ellipse at 98% 40%,#7a1cff2b,transparent 40%)",
+      "important": false,
+      "line": 324
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-booking h2 em"
+      ],
+      "selector": ".home-booking h2 em",
+      "property": "color",
+      "before": "#168bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 345
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-booking .button"
+      ],
+      "selector": ".home-booking .button",
+      "property": "border-color",
+      "before": "#168bff",
+      "after": "#ba40ff",
+      "important": false,
+      "line": 348
+    },
+    {
+      "file": "css/home.css",
+      "context": [
+        ".home-booking .button"
+      ],
+      "selector": ".home-booking .button",
+      "property": "box-shadow",
+      "before": "0 0 15px #168bff30",
+      "after": "0 0 15px #ba40ff30",
+      "important": false,
+      "line": 353
+    }
+  ]
+}

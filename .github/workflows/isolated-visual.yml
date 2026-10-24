@@ -1,4 +1,4 @@
-name: Isolated visual equivalence
+name: Refactor and approved purple validation
 on:
   push:
     branches: [qa/code-organization-20261024]
@@ -8,6 +8,20 @@ jobs:
   compare:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - mode: refactor
+            baseline: d8e606d47093af6e1314f77740962044266d599c
+            candidate: 0b561fb9c51609db9024af5c016aa533a0e9e1f4
+            static: static-check.mjs
+            visual: visual.cjs
+          - mode: purple
+            baseline: 0b561fb9c51609db9024af5c016aa533a0e9e1f4
+            candidate: 359f2f7532ed129ed609336bdabfd9e17dc03281
+            static: color-static.mjs
+            visual: visual-purple.cjs
     steps:
       - uses: actions/checkout@v7
         with:
@@ -15,13 +29,13 @@ jobs:
       - name: Checkout unchanged baseline
         uses: actions/checkout@v7
         with:
-          ref: d8e606d47093af6e1314f77740962044266d599c
+          ref: ${{ matrix.baseline }}
           path: .qa/fixtures/before
           persist-credentials: false
       - name: Checkout exact candidate
         uses: actions/checkout@v7
         with:
-          ref: 0b561fb9c51609db9024af5c016aa533a0e9e1f4
+          ref: ${{ matrix.candidate }}
           path: .qa/fixtures/after
           persist-credentials: false
       - name: Install isolated validation dependencies
@@ -38,13 +52,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p qa-output
-          node .qa/static-check.mjs | tee qa-output/static.log
-          node .qa/visual.cjs | tee qa-output/browser.log
+          node .qa/${{ matrix.static }} | tee qa-output/static.log
+          node .qa/${{ matrix.visual }} | tee qa-output/browser.log
       - name: Upload comparison evidence
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: visual-equivalence-${{ github.sha }}
+          name: visual-${{ matrix.mode }}-${{ github.sha }}
           path: qa-output/
           retention-days: 7
           if-no-files-found: warn

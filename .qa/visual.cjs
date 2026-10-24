@@ -183,7 +183,11 @@ async function interact(page, name, prefix) {
   const before = await serve(beforeDir), after = await serve(afterDir);
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    // Use the same CPU raster path for both candidates and the independent baseline repeat.
+    // Keep zero pixel tolerance: these flags do not mask or exempt any rendered differences.
+    const renderingArgs = ['--disable-gpu', '--disable-skia-runtime-opts'];
+    report.renderingArgs = renderingArgs;
+    browser = await chromium.launch({ headless: true, args: renderingArgs });
     for (const viewport of viewports) for (const name of pages) {
       const runs = [];
       // The repeat is an independent browser context using the exact original files.
