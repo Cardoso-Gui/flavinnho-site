@@ -1,12 +1,12 @@
 /* Homepage: blue concert poster, editorial cutouts and previews of the pages. */
 .page-inicio {
-  --accent: #168bff;
+  --accent: #ba40ff;
   --line: #6e8eb52b}
 .page-inicio .site-header {
   padding: 0 4%
 }
 .page-inicio .wordmark:after {
-  background: #229bff
+  background: #ba40ff
 }
 .page-inicio .site-header {
   --accent: #ba40ff}
@@ -35,7 +35,7 @@
   margin-bottom: 20px
 }
 .page-inicio h1>span {
-  color: #087aff;
+  color: #ba40ff;
   font-size: .9em;
   margin-left: 40%;
   margin-top: -5px
@@ -60,28 +60,28 @@
   border-radius: 40px
 }
 .page-inicio .primary {
-  background: #087aff;
-  border: 1px solid #d6edff;
-  box-shadow: 0 0 18px #137bffa0,inset 0 0 12px #9cd9ff42
+  background: #ba40ff;
+  border: 1px solid #ece7ee;
+  box-shadow: 0 0 18px #ba40ffa0,inset 0 0 12px #ce60ff42
 }
 .page-inicio .primary:hover {
-  background: #249aff;
+  background: #ce5cfc;
   transform: translateY(-2px)
 }
 .page-inicio .outline {
-  border: 1px solid #c5d5eb;
+  border: 1px solid #d3c5e3;
   background: #02040ba6;
   box-shadow: none
 }
 .page-inicio .outline:hover {
-  border-color: #26a7ff;
-  background: #0e407d44
+  border-color: #ce5cfc;
+  background: #8021b444
 }
 .play-mark {
   display: grid;
   place-items: center;
   background: white;
-  color: #188aff!important;
+  color: #ba40ff!important;
   border-radius: 50%;
   width: 23px;
   height: 23px;
@@ -93,12 +93,12 @@
   gap: 14px;
   font-size: 8px;
   letter-spacing: 2px;
-  color: #c8d6f0;
+  color: #d3c5e3;
   margin-top: 25px;
   padding: 10px 0
 }
 .music-link:hover {
-  color: #42b4ff
+  color: #ce5cfc
 }
 .page-inicio .hero-bottom {
   font-size: 8px;
@@ -178,7 +178,7 @@
   transform: rotate(-4deg)
 }
 .home-about .eyebrow {
-  color: #169fff;
+  color: #ce5cfc;
   font-size: 9px;
   letter-spacing: 4px;
   margin-bottom: 12px
@@ -192,7 +192,7 @@
   margin-bottom: 18px
 }
 .home-about h2 em {
-  color: #168bff;
+  color: #ba40ff;
   font-style: normal
 }
 .home-about-copy>p:not(.eyebrow) {
@@ -203,7 +203,7 @@
   margin-bottom: 22px
 }
 .home-about .button {
-  border-color: #168bff;
+  border-color: #ba40ff;
   border-radius: 16px;
   padding: 12px 18px;
   font-size: 8px;
@@ -280,7 +280,7 @@
 }
 .event-stamp strong {
   font-size: 25px;
-  color: #339aff
+  color: #ce6bff
 }
 .event-preview h3 {
   font-size: 15px;
@@ -298,14 +298,14 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  border: 1px solid #b9cbe2;
+  border: 1px solid #c9b4d6;
   border-radius: 50%;
   height: 35px;
   width: 35px;
   font-size: 21px
 }
 .circle-link:hover {
-  background: #137bff
+  background: #ba40ff
 }
 .home-booking {
   position: relative;
@@ -321,7 +321,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(ellipse at 4% 70%,#006cff35,transparent 40%),radial-gradient(ellipse at 98% 40%,#7a1cff2b,transparent 40%)
+  background: radial-gradient(ellipse at 4% 70%,#ba40ff35,transparent 40%),radial-gradient(ellipse at 98% 40%,#7a1cff2b,transparent 40%)
 }
 .home-booking .eyebrow {
   justify-content: center;
@@ -342,15 +342,15 @@
 }
 .home-booking h2 em {
   font-style: normal;
-  color: #168bff
+  color: #ba40ff
 }
 .home-booking .button {
-  border-color: #168bff;
+  border-color: #ba40ff;
   min-width: 285px;
   justify-content: space-between;
   padding: 17px 30px;
   font-size: 10px;
-  box-shadow: 0 0 15px #168bff30
+  box-shadow: 0 0 15px #ba40ff30
 }
 .booking-scribble {
   position: absolute;
