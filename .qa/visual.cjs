@@ -186,7 +186,11 @@ async function interact(page, name, prefix) {
     browser = await chromium.launch({ headless: true });
     for (const viewport of viewports) for (const name of pages) {
       const runs = [];
-      for (const [version, server] of [['before', before], ['after', after]]) {
+      // The repeat is an independent browser context using the exact original files.
+      // Its pixel comparison remains zero-tolerance and can expose rendering nondeterminism.
+      const variants = [['before', before], ['after', after]];
+      if (name === 'index') variants.push(['before-repeat', before]);
+      for (const [version, server] of variants) {
         const prefix = `${name}-${viewport.width}-${version}`;
         const context = await browser.newContext({ viewport, deviceScaleFactor: 1, reducedMotion: 'reduce', locale: 'pt-BR', timezoneId: 'UTC', colorScheme: 'dark' });
         const errors = [], networkErrors = [];
@@ -233,12 +237,18 @@ async function interact(page, name, prefix) {
           runs.push(null);
         } finally { await context.close(); }
       }
-      if (runs.every(Boolean)) {
+      if (runs.slice(0, 2).every(Boolean)) {
         sameJSON(`${name}-${viewport.width} initial geometry/styles/text`, runs[0].initial, runs[1].initial);
         pixels(`${name}-${viewport.width}-initial-pixels`, runs[0].initialShot, runs[1].initialShot);
         sameJSON(`${name}-${viewport.width} interactions/state`, runs[0].interactions.states, runs[1].interactions.states);
         for (const key of Object.keys(runs[0].interactions.shots)) pixels(`${name}-${viewport.width}-${key}-pixels`, runs[0].interactions.shots[key], runs[1].interactions.shots[key]);
       } else record(`${name}-${viewport.width} before/after comparison`, false, 'Blocked by failed load or interaction; not treated as a visual pass.');
+      if (name === 'index') {
+        if (runs[0] && runs[2]) {
+          sameJSON(`${name}-${viewport.width} baseline-repeat geometry/styles/text`, runs[0].initial, runs[2].initial);
+          pixels(`${name}-${viewport.width}-baseline-repeat-pixels`, runs[0].initialShot, runs[2].initialShot);
+        } else record(`${name}-${viewport.width} baseline-repeat comparison`, false, 'Original-page repeat could not be completed; renderer repeatability is unverified.');
+      }
       fs.writeFileSync(path.join(out, 'report.json'), JSON.stringify(report, null, 2));
     }
   } catch (e) { record('runner', false, e.stack || String(e)); }

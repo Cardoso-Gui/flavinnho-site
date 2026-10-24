@@ -21,7 +21,7 @@ jobs:
       - name: Checkout exact candidate
         uses: actions/checkout@v7
         with:
-          ref: 6091395e2a2f268334ff85231349309ca9bcea1a
+          ref: 0b561fb9c51609db9024af5c016aa533a0e9e1f4
           path: .qa/fixtures/after
           persist-credentials: false
       - name: Install isolated validation dependencies
@@ -36,6 +36,7 @@ jobs:
           AFTER_DIR: ${{ github.workspace }}/.qa/fixtures/after
           QA_OUT: ${{ github.workspace }}/qa-output
         run: |
+          set -euo pipefail
           mkdir -p qa-output
           node .qa/static-check.mjs | tee qa-output/static.log
           node .qa/visual.cjs | tee qa-output/browser.log
